@@ -33,7 +33,9 @@ git checkout -b your-feature-name
 
 ## How to Make Changes
 
-To make changes to BioSPPy, open the project in your preferred code editor or IDE. You should install the required dependencies by running the following command:
+To make changes to BioSPPy, open the project in your preferred code editor or IDE. Make sure you have the latest changes from the `main` branch of the `scientisst/biosppy` repository ([Syncing a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)).
+
+You should install the required dependencies by running the following command:
 
 ```bash
 pip install -r requirements.txt
@@ -41,8 +43,7 @@ pip install -r requirements.txt
 
 It is recommended to create a virtual environment to manage your dependencies. This way, you can avoid conflicts with other projects. You can use frameworks like `virtualenv` or `conda` to create one.
 
-It's time to make changes! You can add new functions, modify existing functions, or create new modules by editing the source code files.
-
+It's time to make changes! You can add new functions, modify existing functions, or create new modules by editing the source code files. 
 After making your changes, you should commit them to your local repository:
 
 ```bash
@@ -58,11 +59,12 @@ To open a Pull Request (PR) you need first to push your changes to your remote r
 git push origin your-feature-name
 ```
 
-Then, in your forked repository, you will see a "Contribute" button. Click on it and then select "Open pull request". Make sure make a PR to the `main` branch of the `scientisst/biosppy` repository. 
+Then, in your forked repository, you will see a "Contribute" button. Click on it and then select "Open pull request". Make sure to make a PR to the `main` branch of the `scientisst/biosppy` repository. 
 Please provide a clear title and description for your PR. Include a summary of the changes you have made and any relevant information that will help the maintainers review your code.
 
 <img src='docs/images/pr_button.png' width='400'>
 
+If you don't have the latest changes from the `main` branch of the `scientisst/biosppy` repository, you may need to merge the latest changes into your branch before opening a PR ([Syncing a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)).
 ## Code Style and Best Practices
 **Consistency**: Follow the existing code style and format. Consistency is key to maintaining readability and maintainability.
 
