@@ -4,7 +4,7 @@ import numpy as np
 
 class AFibDetection(KerasClassifier):
     """
-    A class for detecting atrial fibrillation using a pre-trained Keras model from [].
+    A class for detecting atrial fibrillation using a pre-trained Keras model from [Silva23].
 
     References
     ----------
@@ -13,7 +13,7 @@ class AFibDetection(KerasClassifier):
     """
 
     def __init__(self):
-        model_path = 'biosppy/nn/.models/ecg_afibdetection_bilstm.h5'
+        model_path = 'biosppy/ml/.models/ecg_afibdetection_bilstm.h5'
         super().__init__(model_path=model_path)
 
     def preprocess_signal(self, signal, sampling_rate=1000.0, win_len=20, step=1):
