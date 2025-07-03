@@ -21,28 +21,28 @@ class KerasClassifier(ABC):
     ----------
     model_path : str
         Path to the Keras model file.
+    details_path : str
+        Path to a JSON file containing the model details such as label map and sampling rate.
+    scaler_path : str, optional
+        Path to a scaler file (e.g., joblib file) for scaling input data. Default is None.
     """
-    def __init__(self, model_path):
+    def __init__(self, model_path, details_path, scaler_path=None):
         # load model
         self.model = keras.models.load_model(model_path)
 
-        # load scaler if it exists
-        self.scaler = None
-        self.scaler_path = model_path.replace('.h5', '_scaler.joblib')
-        if pathlib.Path(self.scaler_path).exists():
-            self.scaler = joblib.load(self.scaler_path)
-        else:
-            self.scaler_path = None
-
-        # load details if it exists
-        self.details_path = model_path.replace('.h5', '_details.json')
-        if pathlib.Path(self.details_path).exists():
-            with open(self.details_path, 'r') as f:
+        # load details
+        if pathlib.Path(details_path).exists():
+            with open(details_path, 'r') as f:
                 details = json.load(f)
             for key, value in details.items():
                 setattr(self, key, value)
         else:
-            raise FileNotFoundError(f"Details file not found: {self.details_path}")
+            raise FileNotFoundError(f"Details file not found: {details_path}")
+
+        # load scaler if it exists
+        self.scaler = None
+        if scaler_path is not None and pathlib.Path(scaler_path).exists():
+            self.scaler = joblib.load(scaler_path)
 
         # ensure minimum attributes are set
         if not hasattr(self, 'sampling_rate'):
@@ -54,8 +54,7 @@ class KerasClassifier(ABC):
 
     def preprocess_signal(self, signal, sampling_rate=1000.0):
         """
-        Preprocess the input signal based on the model's requirements.
-        This may include scaling and resampling.
+        Preprocess the input signal based on the model's requirements, such as scaling and resampling.
 
         Parameters
         ----------

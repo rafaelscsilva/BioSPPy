@@ -1,10 +1,25 @@
 from .utils import KerasClassifier
 import numpy as np
+import os
 
 
 class AFibDetection(KerasClassifier):
     """
-    A class for detecting atrial fibrillation using a pre-trained Keras model from [Silva23].
+    A class for detecting atrial fibrillation using a pre-trained Keras model from [Silva23]. This model uses the
+    RR interval sequence as input and applies a bidirectional LSTM architecture to classify the signal.
+
+    The signal should be provided as a one-dimensional array of RR intervals in milliseconds.
+
+    Methods
+    -------
+    `predict(signal, **kwargs)`: Predicts whether the input RR interval sequence indicates atrial fibrillation.
+
+    Usage
+    -----
+    from biosppy.ml.ecg import AFibDetection
+    afib_model = AFibDetection()
+    rri_signal = [601., 593., 585., 601., 601., 609.]  # Example RR interval sequence
+    result = afib_model.predict(rri_signal)
 
     References
     ----------
@@ -13,10 +28,12 @@ class AFibDetection(KerasClassifier):
     """
 
     def __init__(self):
-        model_path = 'biosppy/ml/.models/ecg_afibdetection_bilstm.h5'
-        super().__init__(model_path=model_path)
+        base_dir = os.path.dirname(__file__)
+        model_path = os.path.join(base_dir, '.models', 'ecg_afibdetection_bilstm.h5')
+        details_path = os.path.join(base_dir, '.models', 'ecg_afibdetection_bilstm_details.json')
+        super().__init__(model_path=model_path, details_path=details_path)
 
-    def preprocess_signal(self, signal, sampling_rate=1000.0, win_len=20, step=1):
+    def _preprocess_signal(self, signal, win_len=20, step=1):
         win_len = self.win_len if 'win_len' in self.__dict__ else win_len
         step = self.step if 'step' in self.__dict__ else step
 
@@ -45,10 +62,27 @@ class AFibDetection(KerasClassifier):
         X = np.vstack(X_)
         return X
 
-    def predict(self, signal, sampling_rate=1000.0, **kwargs):
+    def predict(self, signal, **kwargs):
+        """
+        Predicts whether the input RR interval sequence indicates atrial fibrillation.
+
+        Parameters
+        ----------
+        signal : array-like
+            The input RR interval sequence as a one-dimensional array, in milliseconds.
+
+        Returns
+        -------
+        bool
+            Returns True if atrial fibrillation is detected, otherwise returns False.
+
+        """
+        # ensure signal has only one channel
+        if signal.ndim > 1:
+            raise ValueError("Input signal must be one-dimensional (single channel).")
 
         # predict using the model on every window
-        X = self.preprocess_signal(signal, sampling_rate, **kwargs)
+        X = self._preprocess_signal(signal, **kwargs)
         probs = self.model.predict(X, verbose=0)
 
         # if any prediction is above the threshold, return afib
