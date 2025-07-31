@@ -3267,7 +3267,7 @@ def afib_detection(signal, sampling_rate=1000.0, segmenter='hamilton', **kwargs)
         raise TypeError("Please specify an input signal")
 
     # Segment the ECG signal
-    segmenter = hamilton_segmenter
+    segmenter = SEGMENTERS.get(segmenter, hamilton_segmenter)
     rpeaks, = call_segmenter(segmenter, signal, sampling_rate, verbose=False, **kwargs)
     if rpeaks is None or len(rpeaks) == 0:
         raise ValueError("No R-peaks detected in the ECG signal. Try using a different segmenter.")
