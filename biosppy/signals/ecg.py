@@ -3281,3 +3281,13 @@ def afib_detection(signal, sampling_rate=1000.0, segmenter='hamilton', **kwargs)
     result = model.predict(rri)
 
     return result
+
+
+SEGMENTERS = {
+    "hamilton": hamilton_segmenter,
+    "ASI": ASI_segmenter,
+    "gamboa": gamboa_segmenter,
+    "engzee": engzee_segmenter,
+    "ssf": ssf_segmenter,
+    "pan-tompkins": Pan_Tompkins_Plus_Plus_segmenter,
+}
