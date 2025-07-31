@@ -3238,3 +3238,46 @@ def ZZ2018(
             return "Unnacceptable"
         else:
             return "Barely acceptable"
+
+
+def afib_detection(signal, sampling_rate=1000.0, segmenter='hamilton', **kwargs):
+    """Detect Atrial Fibrillation in ECG signal.
+
+    Parameters
+    ----------
+    signal : array
+        Input ECG signal, preferably filtered.
+    sampling_rate : float, optional
+        Sampling frequency, in Hz.
+    segmenter : str, optional
+        Segmenter to use for the ECG signal. Default is 'hamilton'.
+    **kwargs : dict, optional
+        Additional keyword arguments for the segmenter.
+
+    Returns
+    -------
+    afib_detected : bool
+        True if AF is detected, False otherwise.
+    """
+    # local imports
+    from ..ml.ecg import AFibDetection
+    from .hrv import compute_rri
+
+    if signal is None:
+        raise TypeError("Please specify an input signal")
+
+    # Segment the ECG signal
+    segmenter = hamilton_segmenter
+    rpeaks, = call_segmenter(segmenter, signal, sampling_rate, verbose=False, **kwargs)
+    if rpeaks is None or len(rpeaks) == 0:
+        raise ValueError("No R-peaks detected in the ECG signal. Try using a different segmenter.")
+    rpeaks, = correct_rpeaks(signal=signal, rpeaks=rpeaks, sampling_rate=sampling_rate, tol=0.05)
+
+    # Extract the RR intervals
+    rri = compute_rri(rpeaks, sampling_rate=sampling_rate, filter_rri=False, show=False)
+
+    # Detect Atrial Fibrillation
+    model = AFibDetection()
+    result = model.predict(rri)
+
+    return result
