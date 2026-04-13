@@ -50,7 +50,7 @@ REQUIRED = [
 # What packages are optional?
 EXTRAS = {
     'eda': ['cvxopt'],
-    # 'fancy feature': ['django'],
+    'ml': ['tensorflow'],
 }
 
 # The rest you shouldn't have to touch too much :)
