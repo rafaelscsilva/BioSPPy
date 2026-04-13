@@ -115,15 +115,12 @@ class KerasClassifier(ABC):
         # predict using the model
         probs = self.model.predict(X, verbose=0)
 
-        # apply threshold if single output is expected
-        if len(probs) == 1:
-            if probs[0] < self.threshold:
-                class_index = 0
-            else:
-                class_index = 1
+        # apply threshold if binary output (single output unit)
+        if probs.shape[-1] == 1:
+            class_index = 0 if probs[0, 0] < self.threshold else 1
         # otherwise, use argmax for multi-class classification
         else:
-            class_index = int(np.argmax(probs))
+            class_index = int(np.argmax(probs[0]))
 
         # map class index to class name
         class_name = self.label_map[class_index] if self.label_map else str(class_index)
