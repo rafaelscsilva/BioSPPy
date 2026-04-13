@@ -6,7 +6,7 @@ biosppy.ml.ecg
 This module provides classes for machine learning models specifically designed for ECG signal analysis or derived
 signals or features (e.g., RR intervals).
 
-:copyright: (c) 2015-2025 by Instituto de Telecomunicacoes
+:copyright: (c) 2015-2026 by Instituto de Telecomunicacoes
 :license: BSD 3-clause, see LICENSE for more details.
 
 """

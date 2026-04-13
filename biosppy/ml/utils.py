@@ -5,7 +5,7 @@ biosppy.ml.utils
 This module provides utility classes and functions for Keras-based models, which can be used for various machine
 learning tasks with biosignals, such as classification, segmentation and anomaly detection.
 
-:copyright: (c) 2015-2025 by Instituto de Telecomunicacoes
+:copyright: (c) 2015-2026 by Instituto de Telecomunicacoes
 :license: BSD 3-clause, see LICENSE for more details.
 
 """
