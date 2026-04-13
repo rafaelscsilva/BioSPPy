@@ -45,21 +45,26 @@ class KerasClassifier(ABC):
         Path to a scaler file (e.g., joblib file) for scaling input data. Default is None.
     """
     def __init__(self, model_path, details_path, scaler_path=None):
+        # validate paths before loading anything
+        if not pathlib.Path(model_path).exists():
+            raise FileNotFoundError(f"Model file not found: {model_path}")
+        if not pathlib.Path(details_path).exists():
+            raise FileNotFoundError(f"Details file not found: {details_path}")
+
         # load model
         self.model = keras.models.load_model(model_path)
 
         # load details
-        if pathlib.Path(details_path).exists():
-            with open(details_path, 'r') as f:
-                details = json.load(f)
-            for key, value in details.items():
-                setattr(self, key, value)
-        else:
-            raise FileNotFoundError(f"Details file not found: {details_path}")
+        with open(details_path, 'r') as f:
+            details = json.load(f)
+        for key, value in details.items():
+            setattr(self, key, value)
 
-        # load scaler if it exists
+        # load scaler
         self.scaler = None
-        if scaler_path is not None and pathlib.Path(scaler_path).exists():
+        if scaler_path is not None:
+            if not pathlib.Path(scaler_path).exists():
+                raise FileNotFoundError(f"Scaler file not found: {scaler_path}")
             self.scaler = joblib.load(scaler_path)
 
         # ensure minimum attributes are set
@@ -123,6 +128,6 @@ class KerasClassifier(ABC):
             class_index = int(np.argmax(probs[0]))
 
         # map class index to class name
-        class_name = self.label_map[class_index] if self.label_map else str(class_index)
+        class_name = self.label_map[str(class_index)] if self.label_map else str(class_index)
 
         return class_name
