@@ -21,8 +21,8 @@ import pathlib
 import os
 
 # suppress TensorFlow warnings
-os.environ['KERAS_BACKEND'] = 'tensorflow'
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+os.environ.setdefault('KERAS_BACKEND', 'tensorflow')
+os.environ.setdefault('TF_CPP_MIN_LOG_LEVEL', '3')
 
 logger = logging.getLogger(__name__)
 
