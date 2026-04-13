@@ -44,8 +44,8 @@ class AFibDetection(KerasClassifier):
 
     def __init__(self):
         base_dir = os.path.dirname(__file__)
-        model_path = os.path.join(base_dir, '.models', 'ecg_afibdetection_bilstm.h5')
-        details_path = os.path.join(base_dir, '.models', 'ecg_afibdetection_bilstm_details.json')
+        model_path = os.path.join(base_dir, '_models', 'ecg_afibdetection_bilstm.h5')
+        details_path = os.path.join(base_dir, '_models', 'ecg_afibdetection_bilstm_details.json')
         super().__init__(model_path=model_path, details_path=details_path)
 
     def _preprocess_signal(self, signal, win_len=20, step=1):
