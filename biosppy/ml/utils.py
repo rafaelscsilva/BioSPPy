@@ -12,7 +12,7 @@ learning tasks with biosignals, such as classification, segmentation and anomaly
 
 # Imports
 import numpy as np
-import keras
+from tensorflow import keras
 import joblib
 import json
 import logging
@@ -20,8 +20,6 @@ from abc import ABC
 import pathlib
 import os
 
-# suppress TensorFlow warnings
-os.environ.setdefault('KERAS_BACKEND', 'tensorflow')
 os.environ.setdefault('TF_CPP_MIN_LOG_LEVEL', '3')
 
 logger = logging.getLogger(__name__)
