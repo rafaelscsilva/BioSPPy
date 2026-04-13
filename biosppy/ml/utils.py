@@ -15,13 +15,16 @@ import numpy as np
 import keras
 import joblib
 import json
-from abc import ABC, abstractmethod
+import logging
+from abc import ABC
 import pathlib
 import os
 
 # suppress TensorFlow warnings
 os.environ['KERAS_BACKEND'] = 'tensorflow'
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
+logger = logging.getLogger(__name__)
 
 
 class KerasClassifier(ABC):
@@ -83,19 +86,19 @@ class KerasClassifier(ABC):
         X : array-like
             The preprocessed signal ready for prediction.
         """
-        print("Preprocessing signal...")
+        logger.debug("Preprocessing signal...")
         X = np.array(signal).reshape(1, -1)
 
         # If a sampling rate is specified, ensure it matches the model's expected rate
         if self.sampling_rate is not None and sampling_rate != self.sampling_rate:
             from biosppy.signals.tools import resample_signal
             X = resample_signal(X, sampling_rate, self.sampling_rate)
-            print(f"- Resampling to {self.sampling_rate} Hz applied.")
+            logger.debug("Resampling to %s Hz applied.", self.sampling_rate)
 
         # If a scaler is provided, apply it to the input signal
         if self.scaler:
             X = self.scaler.transform(X)
-            print("- Scaling applied.")
+            logger.debug("Scaling applied.")
 
         return X
 
