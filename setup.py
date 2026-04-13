@@ -136,6 +136,9 @@ setup(
     install_requires=REQUIRED,
     extras_require=EXTRAS,
     include_package_data=True,
+    package_data={
+        'biosppy': ['ml/_models/*.h5', 'ml/_models/*.json'],
+    },
     license=LICENSE,
     classifiers=[
         # Trove classifiers
