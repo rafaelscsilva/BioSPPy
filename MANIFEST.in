@@ -1,1 +1,2 @@
 include README.md LICENSE AUTHORS.md CHANGES.md
+recursive-include biosppy/ml/_models *
