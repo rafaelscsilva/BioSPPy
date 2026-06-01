@@ -7,8 +7,6 @@ This sub-package provides methods to generate artificial (synthesised) physiolog
 Modules
 -------
 
-.. contents::
-   :local:
 
 .. automodule:: biosppy.synthesizers.ecg
     :members:

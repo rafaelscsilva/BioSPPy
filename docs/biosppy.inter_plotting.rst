@@ -6,8 +6,6 @@ This sub-package provides support for interactive plots that allow manual annota
 Modules
 -------
 
-.. contents::
-   :local:
 
 .. automodule:: biosppy.inter_plotting.acc
     :members:
