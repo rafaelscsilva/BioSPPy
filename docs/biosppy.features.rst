@@ -7,8 +7,6 @@ This sub-package provides methods to extract common features from physiological 
 Modules
 -------
 
-.. contents::
-   :local:
 
 .. automodule:: biosppy.features.cepstral
     :members:

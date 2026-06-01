@@ -1,5 +1,5 @@
 sphinx==6.2.1
-sphinx-rtd-theme==1.2.2
+furo==2024.8.6
 pillow==10.3.0
 mock==1.0.1
 commonmark==0.9.1
