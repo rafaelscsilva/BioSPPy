@@ -7,11 +7,28 @@ This sub-package provides methods to extract common features from physiological 
 Modules
 -------
 
-.. autosummary::
-   :toctree: api/features
 
-   biosppy.features.cepstral
-   biosppy.features.frequency
-   biosppy.features.phase_space
-   biosppy.features.time
-   biosppy.features.time_freq
+.. automodule:: biosppy.features.cepstral
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: biosppy.features.frequency
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: biosppy.features.phase_space
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: biosppy.features.time
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: biosppy.features.time_freq
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -17,15 +17,48 @@ Packages
 Modules
 -------
 
-.. autosummary::
-   :toctree: api
 
-   biosppy.biometrics
-   biosppy.clustering
-   biosppy.metrics
-   biosppy.plotting
-   biosppy.quality
-   biosppy.stats
-   biosppy.storage
-   biosppy.timing
-   biosppy.utils
+.. automodule:: biosppy.biometrics
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: biosppy.clustering
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: biosppy.metrics
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: biosppy.plotting
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: biosppy.quality
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: biosppy.stats
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: biosppy.storage
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: biosppy.timing
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: biosppy.utils
+    :members:
+    :undoc-members:
+    :show-inheritance:
