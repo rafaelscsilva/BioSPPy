@@ -61,6 +61,7 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',
     'sphinx.ext.imgmath',
+    'sphinx_copybutton',
 ]
 
 # Napoleon settings
