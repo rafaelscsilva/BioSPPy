@@ -1,9 +1,15 @@
 Welcome to ``BioSPPy``
 ======================
 
-.. image:: logo/logo.png
+.. image:: _static/logo_light.png
     :align: center
     :alt: I know you're listening!
+    :class: only-light
+
+.. image:: _static/logo_dark.png
+    :align: center
+    :alt: I know you're listening!
+    :class: only-dark
 
 ``BioSPPy`` is a toolbox for biosignal processing written in Python.
 The toolbox bundles together various signal processing and pattern
