@@ -7,8 +7,6 @@ This sub-package provides methods to process common physiological signals
 Modules
 -------
 
-.. contents::
-   :local:
 
 .. automodule:: biosppy.signals.abp
     :members:
