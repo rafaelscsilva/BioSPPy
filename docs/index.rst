@@ -27,7 +27,7 @@ Contents:
 .. toctree::
    :maxdepth: 1
 
-   tutorial
+   gettingstarted
    returntuple
    biosignals/index
    biosppy
