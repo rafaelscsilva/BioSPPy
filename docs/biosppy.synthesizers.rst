@@ -7,13 +7,8 @@ This sub-package provides methods to generate artificial (synthesised) physiolog
 Modules
 -------
 
+.. autosummary::
+   :toctree: api/synthesizers
 
-.. automodule:: biosppy.synthesizers.ecg
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: biosppy.synthesizers.emg
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   biosppy.synthesizers.ecg
+   biosppy.synthesizers.emg

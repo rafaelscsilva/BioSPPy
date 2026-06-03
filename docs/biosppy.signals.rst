@@ -7,63 +7,18 @@ This sub-package provides methods to process common physiological signals
 Modules
 -------
 
+.. autosummary::
+   :toctree: api/signals
 
-.. automodule:: biosppy.signals.abp
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: biosppy.signals.acc
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: biosppy.signals.bvp
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: biosppy.signals.ecg
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: biosppy.signals.eda
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: biosppy.signals.eeg
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: biosppy.signals.emg
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: biosppy.signals.hrv
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: biosppy.signals.pcg
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    
-.. automodule:: biosppy.signals.ppg
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: biosppy.signals.resp
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: biosppy.signals.tools
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   biosppy.signals.abp
+   biosppy.signals.acc
+   biosppy.signals.bvp
+   biosppy.signals.ecg
+   biosppy.signals.eda
+   biosppy.signals.eeg
+   biosppy.signals.emg
+   biosppy.signals.hrv
+   biosppy.signals.pcg
+   biosppy.signals.ppg
+   biosppy.signals.resp
+   biosppy.signals.tools
