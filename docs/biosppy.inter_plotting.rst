@@ -1,5 +1,5 @@
 biosppy.inter_plotting
-===============
+======================
 
 This sub-package provides support for interactive plots that allow manual annotation of physiological signals.
 
