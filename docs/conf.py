@@ -57,12 +57,22 @@ sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
     'sphinx.ext.coverage',
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',
     'sphinx.ext.imgmath',
     'sphinx_copybutton',
 ]
+
+autosummary_generate = True
+
+# Make autosummary-generated module pages render full API details for members.
+autodoc_default_options = {
+    'members': True,
+    'undoc-members': True,
+    'show-inheritance': True,
+}
 
 # Napoleon settings
 napoleon_use_rtype = False

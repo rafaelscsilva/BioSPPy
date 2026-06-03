@@ -28,6 +28,8 @@ Contents:
    :maxdepth: 1
 
    tutorial
+   returntuple
+   biosignals/index
    biosppy
 
 Installation
