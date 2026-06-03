@@ -6,13 +6,8 @@ This sub-package provides support for interactive plots that allow manual annota
 Modules
 -------
 
+.. autosummary::
+   :toctree: api/inter_plotting
 
-.. automodule:: biosppy.inter_plotting.acc
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. automodule:: biosppy.inter_plotting.ecg
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   biosppy.inter_plotting.acc
+   biosppy.inter_plotting.ecg
