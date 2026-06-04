@@ -14,7 +14,7 @@ signals or features (e.g., RR intervals).
 # Imports
 import numpy as np
 import os
-from .utils import KerasClassifier
+from .utils_ml import KerasClassifier
 
 
 class AFibDetection(KerasClassifier):
