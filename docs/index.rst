@@ -27,6 +27,21 @@ Welcome to ``BioSPPy``
 |
 |
 
+|
+.. image:: images/biosppy_stats.svg
+    :align: left
+    :alt: BioSPPy stats
+    :class: only-light
+
+.. image:: images/biosppy_stats-dark.svg
+    :align: left
+    :alt: BioSPPy stats
+    :class: only-dark
+
+|
+|
+|
+
 ``BioSPPy`` is a toolbox for biosignal processing written in Python.
 The toolbox bundles together signal processing, visualization, feature
 extraction, quality assessment, synthesis, and pattern recognition methods
