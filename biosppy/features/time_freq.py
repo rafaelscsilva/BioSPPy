@@ -6,7 +6,7 @@ biosppy.features.time_freq
 This module provides methods to extract time-frequency features using
 discrete wavelet decomposition.
 
-:copyright: (c) 2015-2023 by Instituto de Telecomunicacoes
+:copyright: (c) 2015-2026 by Instituto de Telecomunicacoes
 :license: BSD 3-clause, see LICENSE for more details.
 """
 
