@@ -24,24 +24,24 @@ from scipy import stats
 def quality_eda(x=None, methods=['bottcher'], sampling_rate=None, verbose=1):
     """Compute the quality index for one EDA segment.
 
-        Parameters
-        ----------
-        x : array
-            Input signal to test.
-        methods : list
-            Method to assess quality. One or more of the following: 'bottcher'.
-        sampling_rate : int
-            Sampling frequency (Hz).
-        verbose : int
-            If 1, a commentary is printed regarding the quality of the signal and details of the function. Default is 1.
+    Parameters
+    ----------
+    x : array
+        Input signal to test.
+    methods : list
+        Method to assess quality. One or more of the following: 'bottcher'.
+    sampling_rate : int
+        Sampling frequency (Hz).
+    verbose : int
+        If 1, a commentary is printed regarding the quality of the signal and details of the function. Default is 1.
 
-        Returns
-        -------
-        args : tuple
-            Tuple containing the quality index for each method.
-        names : tuple
-            Tuple containing the name of each method.
-        """
+    Returns
+    -------
+    args : tuple
+        Tuple containing the quality index for each method.
+    names : tuple
+        Tuple containing the name of each method.
+    """
     # check inputs
     if x is None:
         raise TypeError("Please specify the input signal.")
@@ -71,7 +71,6 @@ def quality_ecg(segment, methods=['Level3'], sampling_rate=None,
                 fisher=True, f_thr=0.01, threshold=0.9, bit=0, 
                 nseg=1024, num_spectrum=[5, 20], dem_spectrum=None, 
                 mode_fsqi='simple', verbose=1):
-    
     """Compute the quality index for one ECG segment.
 
     Parameters
@@ -130,9 +129,7 @@ def quality_ecg(segment, methods=['Level3'], sampling_rate=None,
 
 
 def ecg_sqi_level3(segment, sampling_rate, threshold, bit):
-
     """Compute the quality index for one ECG segment. The segment should have 10 seconds.
-
 
     Parameters
     ----------
@@ -223,24 +220,27 @@ def eda_sqi_bottcher(x=None, sampling_rate=None, verbose=1):  # -> Timeline
     
 
 def cSQI(rpeaks=None, verbose=1):
-    """For the ECG signal
-    Calculate the Coefficient of Variation of RR Intervals (cSQI).
+    """For the ECG signal, calculate the Coefficient of Variation of RR Intervals (cSQI).
+
     Parameters
     ----------
     rpeaks : array-like
         Array containing R-peak locations. Should be filtered? How many seconds are adequate?
     verbose : int
         If 1, a commentary is printed regarding the quality of the signal and details of the function. Default is 1.
+
     Returns
     -------
     cSQI : float
         Coefficient of Variation of RR Intervals. cSQI - best near 0
+
     References
     ----------
     ..  [Zhao18] Zhao, Z., & Zhang, Y. (2018).
     SQI quality evaluation mechanism of single-lead ECG signal based on simple heuristic fusion and fuzzy comprehensive evaluation.
     Frontiers in Physiology, 9, 727.
     """
+
     if rpeaks is None:
         raise TypeError("Please specify the R-peak locations.")
   
@@ -269,6 +269,7 @@ def cSQI(rpeaks=None, verbose=1):
 def hosSQI(signal=None, quantitative=False, verbose=1):
     """For the ECG signal.
     Calculate the Higher-order-statistics-SQI (hosSQI).
+
     Parameters
     ----------
     signal : array-like
