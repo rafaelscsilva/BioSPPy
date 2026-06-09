@@ -13,6 +13,7 @@ Packages
    biosppy.features
    biosppy.synthesizers
    biosppy.inter_plotting
+   biosppy.spatial
 
 Modules
 -------
