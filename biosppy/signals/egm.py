@@ -47,7 +47,7 @@ def egm(signal=None, sampling_rate=1000., type = 'bipolar', rhythm = None, woi=N
        If True, show a summary plot.
     
     Returns
-    ----------
+    -------
     ts : array
         Signal time axis reference (seconds). 
     filtered : array
@@ -238,7 +238,7 @@ def get_woi(signal, woi_from, woi_to, reference=None):
     """
     Extracts a window of interest (WOI) from the EGM signal.
     
-    Parameters:
+    Parameters
     ----------
     signal : array
         An array with the EGM signal.
@@ -249,8 +249,8 @@ def get_woi(signal, woi_from, woi_to, reference=None):
     reference : int, optional
         Reference sample index for the window of interest. If provided, the window will be centered around this reference.
     
-    Returns:
-    ----------
+    Returns
+    -------
     egm_woi : array
         The EGM signal cropped to the window of interest.
     """
@@ -270,7 +270,7 @@ def nleo_lat(signal=None, sampling_rate=1000., woi = None, reference = None, plo
     """
     Calculate the NLEO (Non-Linear Energy Operator) and activation times from EGM signals.
     
-    Parameters:
+    Parameters
     ----------
     egm : np.ndarray
         An array with the EGM signal.
@@ -283,8 +283,8 @@ def nleo_lat(signal=None, sampling_rate=1000., woi = None, reference = None, plo
     plot : bool, optional
         If True, plots the EGM signal with activation time marked.
     
-    Returns:
-    ----------
+    Returns
+    -------
     nleo : np.ndarray
         The NLEO of the EGM signal.
     nleo_filt : np.ndarray
@@ -305,7 +305,7 @@ def nleo(signal=None, sampling_rate=1000., woi = None, reference = None, thresho
     """
     Calculate activation time based on the NLEO (Non-Linear Energy Operator) method.
     
-    Parameters:
+    Parameters
     ----------
     signal : array
         An array with the EGM signal.
@@ -318,8 +318,8 @@ def nleo(signal=None, sampling_rate=1000., woi = None, reference = None, thresho
     plot : bool, optional
         If True, plots the EGM signal with activation time marked.
     
-    Returns:
-    ----------
+    Returns
+    -------
     nleo : array
         The NLEO of the EGM signal.
     nleo_filt : array
@@ -409,7 +409,7 @@ def dvdt_lat(signal=None, sampling_rate=1000., woi = None, reference = None, plo
     """
     Calculate activation time based on maximum negative dv/dt from EGM signal.
     
-    Parameters:
+    Parameters
     ----------
     signal : array
         An array with the EGM signal.
@@ -422,8 +422,8 @@ def dvdt_lat(signal=None, sampling_rate=1000., woi = None, reference = None, plo
     plot : bool, optional
         If True, plots the EGM signal with activation time marked.
         
-    Returns:
-    ----------
+    Returns
+    -------
     lat_index : int
         Index corresponding to the activation time of the EGM signal.
     lat : float
@@ -463,7 +463,7 @@ def max_lat(signal=None, sampling_rate=1000., woi = None, reference = None, plot
     """
     Calculate activation time based on maximum amplitude from EGM signal.
     
-    Parameters:
+    Parameters
     ----------
     signal : array
         An array with the EGM signal.
@@ -476,8 +476,8 @@ def max_lat(signal=None, sampling_rate=1000., woi = None, reference = None, plot
     plot : bool, optional
         If True, plots the EGM signal with activation time marked.
         
-    Returns:
-    ----------
+    Returns
+    -------
     lat_index : int
         Index corresponding to the activation time of the EGM signal.
     lat : float
@@ -512,7 +512,7 @@ def min_lat(signal=None, sampling_rate=1000., woi = None, reference = None, plot
     """
     Calculate activation time based on minimum amplitude from EGM signal.
     
-    Parameters:
+    Parameters
     ----------
     signal : array
         An array with the EGM signal.
@@ -525,8 +525,8 @@ def min_lat(signal=None, sampling_rate=1000., woi = None, reference = None, plot
     plot : bool, optional
         If True, plots the EGM signal with activation time marked.
         
-    Returns:
-    ----------
+    Returns
+    -------
     lat_index : int
         Index corresponding to the activation time of the EGM signal.
     lat : float
@@ -561,7 +561,7 @@ def get_activation_times(signals=None, sampling_rate=1000., woi=None, reference=
     """
     Calculate activation times for multiple EGM signals.
     
-    Parameters:
+    Parameters
     ----------
     signals : array
         A 2D array where each row is an EGM signal.
@@ -572,7 +572,8 @@ def get_activation_times(signals=None, sampling_rate=1000., woi=None, reference=
     reference : int, optional
         Reference sample index for the window of interest. If provided, the window will be centered around this reference.
     
-    Returns:
+    Returns
+    -------
     lat_indexes : int
         Indexes corresponding to the activation times of each EGM signal.
     lats : float
@@ -605,7 +606,7 @@ def compare_activation_times(signal=None, sampling_rate=1000., woi=None, referen
     """
     Compare activation times calculated by different methods for a single EGM signal.
     
-    Parameters:
+    Parameters
     ----------
     signal : array
         An array with the EGM signal.
@@ -618,8 +619,8 @@ def compare_activation_times(signal=None, sampling_rate=1000., woi=None, referen
     plot : bool, optional
         If True, plots the EGM signal with activation times marked.
     
-    Returns:
-    ----------
+    Returns
+    -------
     lat_index_nleo : int
         Index corresponding to the activation time from NLEO method.
     lat_index_dvdt : int
@@ -667,7 +668,7 @@ def get_voltage(signal=None, woi=None, reference=None):
     """
     Get the maximum voltage of the EGM signal.
     
-    Parameters:
+    Parameters
     ----------
     signal : array
         An array with the EGM signal.
@@ -676,8 +677,8 @@ def get_voltage(signal=None, woi=None, reference=None):
     reference : int, optional
         Reference sample index for the window of interest. If provided, the window will be centered around this reference.
     
-    Returns:
-    ----------
+    Returns
+    -------
     voltage : float
         The maximum voltage of the EGM signal.
     """
@@ -700,7 +701,7 @@ def get_voltages(signals=None, woi=None, reference=None):
     """
     Get the maximum voltages for multiple EGM signals.
     
-    Parameters:
+    Parameters
     ----------
     signals : array
         A 2D array where each row is an EGM signal.
@@ -709,8 +710,8 @@ def get_voltages(signals=None, woi=None, reference=None):
     reference : int, optional
         Reference sample index for the window of interest. If provided, the window will be centered around this reference.
     
-    Returns:
-    ----------
+    Returns
+    -------
     voltages : array
         An array of maximum voltages for each EGM signal.
     """
@@ -729,7 +730,7 @@ def dominant_frequency(signal=None, sampling_rate=1000., plot=False):
     """
     Get the dominant frequency of the EGM signal.
     
-    Parameters:
+    Parameters
     ----------
     signal : array
         An array with the EGM signal.
@@ -738,8 +739,8 @@ def dominant_frequency(signal=None, sampling_rate=1000., plot=False):
     plot : bool, optional
         If True, plots the power spectral density of the EGM signal.
     
-    Returns:
-    ----------
+    Returns
+    -------
     dominant_freq : float
         The dominant frequency of the EGM signal in Hz.
     fft_freqs : array
@@ -803,7 +804,7 @@ def shannon_entropy(signal=None, sampling_rate=1000., plot=False):
     """
     Calculate Shannon entropy of the EGM signal.
     
-    Parameters:
+    Parameters
     ----------
     signal : array
         An array with the EGM signal.
@@ -812,8 +813,8 @@ def shannon_entropy(signal=None, sampling_rate=1000., plot=False):
     plot : bool, optional
         If True, plots the histogram of the EGM signal voltages.
     
-    Returns:
-    ----------
+    Returns
+    -------
     shannon_entropy : float
         Shannon entropy of the EGM signal.
     """
@@ -843,15 +844,15 @@ def organization_index(signal=None, sampling_rate=1000.):
     """
     Calculate organization index of the EGM signal.
     
-    Parameters:
+    Parameters
     ----------
     signal : array
         An array with the EGM signal.
     sampling_rate : int, float, optional
         Sampling frequency (Hz) of the EGM signal (default is 1000 Hz).
     
-    Returns:
-    ----------
+    Returns
+    -------
     organization_index : float
         Organization index of the EGM signal.
     """
@@ -891,15 +892,15 @@ def regularity_index(signal=None, sampling_rate=1000.):
     """
     Calculate regularity index of the EGM signal.
     
-    Parameters:
+    Parameters
     ----------
     signal : array
         An array with the EGM signal.
     sampling_rate : int, float, optional
         Sampling frequency (Hz) of the EGM signal (default is 1000 Hz).
     
-    Returns:
-    ----------
+    Returns
+    -------
     regularity_index : float
         Regularity index of the EGM signal.
     """
