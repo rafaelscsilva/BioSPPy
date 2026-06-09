@@ -147,7 +147,7 @@ def find_onsets_elgendi2013(signal=None, sampling_rate=1000., peakwindow=0.111, 
         Avoids false positives
 
     Returns
-    ----------
+    -------
     onsets : array
         Indices of PPG pulse onsets.
     params : dict
@@ -156,18 +156,19 @@ def find_onsets_elgendi2013(signal=None, sampling_rate=1000., peakwindow=0.111, 
 
     References
     ----------
-    - Elgendi M, Norton I, Brearley M, Abbott D, Schuurmans D (2013) Systolic Peak Detection in
-    Acceleration Photoplethysmograms Measured from Emergency Responders in Tropical Conditions.
-    PLoS ONE 8(10): e76585. doi:10.1371/journal.pone.0076585.
-    
+    .. [Elgendi2013] Elgendi M, Norton I, Brearley M, Abbott D, Schuurmans D.
+       Systolic Peak Detection in Acceleration Photoplethysmograms Measured
+       from Emergency Responders in Tropical Conditions. PLoS ONE,
+       8(10):e76585, 2013. doi:10.1371/journal.pone.0076585.
+
     Notes
-    ---------------------
-    Optimal ranges for signal filtering (from Elgendi et al. 2013):
-    "Optimization of the beat detector’s spectral window for the lower frequency resulted in a 
+    -----
+    Optimal ranges for signal filtering (from [Elgendi2013]_):
+    "Optimization of the beat detector’s spectral window for the lower frequency resulted in a
     value within 0.5– 1 Hz with the higher frequency within 7–15 Hz"
     
     All the number references below between curly brackets {...} by the code refer to the line numbers of
-    code in "Table 2 Algorithm IV: DETECTOR (PPG signal, F1, F2, W1, W2, b)" from Elgendi et al. 2013 for a
+    code in "Table 2 Algorithm IV: DETECTOR (PPG signal, F1, F2, W1, W2, b)" from [Elgendi2013]_ for a
     better comparison of the algorithm
     
     """
@@ -283,7 +284,7 @@ def find_onsets_kavsaoglu2016(
         Maximum value accepted as valid BPM.
 
     Returns
-    ----------
+    -------
     onsets : array
         Indices of PPG pulse onsets.
     window_marks : array
@@ -294,13 +295,14 @@ def find_onsets_kavsaoglu2016(
 
     References
     ----------
-    - Kavsaoğlu, Ahmet & Polat, Kemal & Bozkurt, Mehmet. (2016). An innovative peak detection algorithm for
-    photoplethysmography signals: An adaptive segmentation method. TURKISH JOURNAL OF ELECTRICAL ENGINEERING
-    & COMPUTER SCIENCES. 24. 1782-1796. 10.3906/elk-1310-177.
+    .. [Kavsaoglu2016] Kavsaoglu A, Polat K, Bozkurt M. An innovative peak
+       detection algorithm for photoplethysmography signals: an adaptive
+       segmentation method. Turkish Journal of Electrical Engineering and
+       Computer Sciences, 24:1782-1796, 2016. doi:10.3906/elk-1310-177.
 
     Notes
-    ---------------------
-    This algorithm is an adaption of the one described on Kavsaoğlu et al. (2016).
+    -----
+    This algorithm is an adaptation of the one described in [Kavsaoglu2016]_.
     This version takes into account a minimum delay between peaks and builds upon the adaptive segmentation
     by using a low-pass filter for BPM changes. This way, even if the algorithm wrongly detects a peak, the
     BPM value will stay relatively constant so the next pulse can be correctly segmented.
