@@ -16,6 +16,7 @@ Modules
    biosppy.signals.ecg
    biosppy.signals.eda
    biosppy.signals.eeg
+   biosppy.signals.egm
    biosppy.signals.emg
    biosppy.signals.hrv
    biosppy.signals.pcg
