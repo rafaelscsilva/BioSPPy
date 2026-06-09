@@ -67,7 +67,7 @@ def synth_uniform(duration=10,
         Seed for the random number generator. 
 
     Returns
-    ----------
+    -------
     emg : array
         Vector containing the EMG signal.
     t : array
@@ -76,36 +76,36 @@ def synth_uniform(duration=10,
         Input parameters of the function, clean EMG and noise signals, and SNR
 
     Examples
-    ----------
-    sampling_rate = 1000
-    duration = 10
-    noise_amplitude = 0.05
-    bursts = 7
-    burst_duration = [0.5,1,0.5,0.6,1,0.5,0.5]
-    burst_location = [0.1,2.5,4,5.5,7,8.5,9.4]
-    amplitude_mult = [1,1,0.5,1.5,1,0.75,1]
-    emg_synth, t, params = synth_uniform(duration=duration, sampling_rate=sampling_rate, noise=noise_amplitude, 
-                                        burst_number=bursts, burst_duration=burst_duration, burst_location=burst_location,
-                                        amplitude_mult=amplitude_mult)
-    
-    # Get muscle activity state
-    activity = params["activity"]
+    --------
+    .. code-block:: python
 
-    plt.plot(t,emg_synth,label="EMG")
-    plt.plot(t,activity,label="Muscle activity")
-    plt.xlabel("Time (s)")
-    plt.ylabel("Amplitude (mV)")
-    plt.grid()
-    plt.title("EMG")
-    plt.legend()
+        sampling_rate = 1000
+        duration = 10
+        noise_amplitude = 0.05
+        bursts = 7
+        burst_duration = [0.5,1,0.5,0.6,1,0.5,0.5]
+        burst_location = [0.1,2.5,4,5.5,7,8.5,9.4]
+        amplitude_mult = [1,1,0.5,1.5,1,0.75,1]
+        emg_synth, t, params = synth_uniform(duration=duration, sampling_rate=sampling_rate, noise=noise_amplitude,
+                                            burst_number=bursts, burst_duration=burst_duration, burst_location=burst_location,
+                                            amplitude_mult=amplitude_mult)
 
-    plt.show()
+        # Get muscle activity state
+        activity = params["activity"]
+
+        plt.plot(t,emg_synth,label="EMG")
+        plt.plot(t,activity,label="Muscle activity")
+        plt.xlabel("Time (s)")
+        plt.ylabel("Amplitude (mV)")
+        plt.grid()
+        plt.title("EMG")
+        plt.legend()
+
+        plt.show()
 
     References
-    -----------
-    .. [ModelEMG1] Joanna DIONG, 
-    "PYTHON: ANALYSING EMG SIGNALS",
-    https://scientificallysound.org/2016/08/11/python-analysing-emg-signals-part-1/
+    ----------
+    .. [ModelEMG1] Joanna DIONG, "PYTHON: ANALYSING EMG SIGNALS", https://scientificallysound.org/2016/08/11/python-analysing-emg-signals-part-1/
     """
     # Seed the random generator for reproducible results
     # If seed is an integer, use the legacy RandomState class
@@ -319,7 +319,7 @@ def _truncated_gaussian_window(sigma,
         The truncated Gaussian window.
 
     References
-    -----------
+    ----------
     .. [ModelEMG] Marco GHISLIERI, Giacinto Luigi CERONE, Marco KNAFLITZ & Valentina AGOSTINI
        "LONG SHORT-TERM MEMORY (LSTM) RECURRENT NEURAL NETWORK FOR MUSCLE ACTIVITY DETECTION"
        Journal of NeuroEngineering and Rehabilitation, Vol. 18, No. 1, 2021, 3–4
@@ -388,7 +388,7 @@ def synth_gaussian(duration=10,
         Seed for the random number generator. 
 
     Returns
-    ----------
+    -------
     emg : array
         Vector containing the EMG signal.
     t : array
@@ -397,35 +397,37 @@ def synth_gaussian(duration=10,
         Input parameters of the function, clean EMG and noise signals, and SNR
 
     Examples
-    ----------
-    sampling_rate = 1000
-    duration = 10
-    SNR = 30
-    sigma = 0.2
-    alpha = 1.25
-    bursts = 4
-    burst_location = [2,4,6,8]
-    output = synth_gaussian(duration=duration, sampling_rate=sampling_rate, SNR=SNR, 
-                                    sigma=sigma, alpha=alpha, burst_number=bursts, burst_location=burst_location,
-                                    random_state=0)
-    emg_synth, t, params = output["emg"], output["t"], output["params"]
+    --------
+    .. code-block:: python
 
-    # Get muscle activity state
-    activity = params["activity"]
+        sampling_rate = 1000
+        duration = 10
+        SNR = 30
+        sigma = 0.2
+        alpha = 1.25
+        bursts = 4
+        burst_location = [2,4,6,8]
+        output = synth_gaussian(duration=duration, sampling_rate=sampling_rate, SNR=SNR,
+                                        sigma=sigma, alpha=alpha, burst_number=bursts, burst_location=burst_location,
+                                        random_state=0)
+        emg_synth, t, params = output["emg"], output["t"], output["params"]
 
-    plt.figure()
-    plt.plot(t,emg_synth,label="EMG")
-    plt.plot(t,activity,label="Muscle activity")
-    plt.xlabel("Time (s)")
-    plt.ylabel("Amplitude (mV)")
-    plt.grid()
-    plt.title("EMG")
-    plt.legend()
+        # Get muscle activity state
+        activity = params["activity"]
 
-    plt.show()
+        plt.figure()
+        plt.plot(t,emg_synth,label="EMG")
+        plt.plot(t,activity,label="Muscle activity")
+        plt.xlabel("Time (s)")
+        plt.ylabel("Amplitude (mV)")
+        plt.grid()
+        plt.title("EMG")
+        plt.legend()
+
+        plt.show()
 
     References
-    -----------
+    ----------
     .. [ModelEMG2] Marco GHISLIERI, Giacinto Luigi CERONE, Marco KNAFLITZ & Valentina AGOSTINI
        "LONG SHORT-TERM MEMORY (LSTM) RECURRENT NEURAL NETWORK FOR MUSCLE ACTIVITY DETECTION"
        Journal of NeuroEngineering and Rehabilitation, Vol. 18, No. 1, 2021, 3–4
