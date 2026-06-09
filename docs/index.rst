@@ -10,22 +10,6 @@ Welcome to ``BioSPPy``
     :align: center
     :alt: I know you're listening!
     :class: only-dark
-    :class: only-dark
-
-|
-.. image:: images/biosppy_stats.svg
-    :align: left
-    :alt: BioSPPy stats
-    :class: only-light
-
-.. image:: images/biosppy_stats-dark.svg
-    :align: left
-    :alt: BioSPPy stats
-    :class: only-dark
-
-|
-|
-|
 
 |
 .. image:: images/biosppy_stats.svg
