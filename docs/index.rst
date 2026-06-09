@@ -74,6 +74,7 @@ Main modules at a glance
 
 -  :doc:`gettingstarted` for the package overview and first ECG walkthrough
 -  :doc:`biosignals/index` for biosignal-specific pages and examples
+-  :doc:`ml/index` for optional machine-learning models and usage examples
 -  :doc:`biosppy` for the complete API reference
 -  :doc:`returntuple` for the named return container used across the package
 -  :doc:`biosppy.features` for feature extraction modules
@@ -87,6 +88,7 @@ Contents:
    gettingstarted
    returntuple
    biosignals/index
+   ml/index
    biosppy
    contribute
    howtocite

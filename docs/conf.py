@@ -39,7 +39,7 @@ MOCK_MODULES = ['numpy', 'scipy', 'scipy.fft', 'matplotlib', 'matplotlib.pyplot'
                 'sklearn.model_selection', 'sklearn.externals',
                 'matplotlib.gridspec', 'h5py', 'shortuuid', 'bidict', 'svm',
                 'sksvm','pywt','joblib','scipy.linalg','scipy.integrate','scipy.ndimage','peakutils',
-                'pyvista']
+                'pyvista', 'tensorflow', 'tensorflow.keras']
 
 sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 

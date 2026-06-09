@@ -14,6 +14,7 @@ Packages
    biosppy.synthesizers
    biosppy.inter_plotting
    biosppy.spatial
+   biosppy.ml
 
 Modules
 -------
