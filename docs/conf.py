@@ -30,7 +30,7 @@ class Mock(MagicMock):
             return Mock()
 
 
-MOCK_MODULES = ['numpy', 'scipy', 'matplotlib', 'matplotlib.pyplot','matplotlib.lines',
+MOCK_MODULES = ['numpy', 'scipy', 'scipy.fft', 'matplotlib', 'matplotlib.pyplot', 'matplotlib.colors', 'matplotlib.lines',
                 'matplotlib.patches','matplotlib.backends.backend_tkagg',
                 'scipy.signal', 'scipy.interpolate', 'scipy.optimize',
                 'scipy.stats', 'scipy.cluster', 'scipy.cluster.hierarchy',
@@ -38,7 +38,8 @@ MOCK_MODULES = ['numpy', 'scipy', 'matplotlib', 'matplotlib.pyplot','matplotlib.
                 'scipy.spatial.distance', 'sklearn', 'sklearn.cluster',
                 'sklearn.model_selection', 'sklearn.externals',
                 'matplotlib.gridspec', 'h5py', 'shortuuid', 'bidict', 'svm',
-                'sksvm','pywt','joblib','scipy.linalg','scipy.integrate','scipy.ndimage','peakutils']
+                'sksvm','pywt','joblib','scipy.linalg','scipy.integrate','scipy.ndimage','peakutils',
+                'pyvista']
 
 sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 
