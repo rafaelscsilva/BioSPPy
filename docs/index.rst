@@ -89,6 +89,7 @@ Contents:
    returntuple
    biosignals/index
    biosppy
+   howtocite
 
 Installation
 ------------
