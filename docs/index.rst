@@ -56,7 +56,6 @@ including:
 
 -  ACC (Accelerometry)
 -  ABP (Arterial Blood Pressure)
--  BCG (Ballistocardiography)
 -  BVP (Blood Volume Pulse)
 -  ECG (Electrocardiography)
 -  EDA (Electrodermal Activity)
