@@ -1291,7 +1291,7 @@ def _read_ecg_files(ECG_file):
         Path to the ECG_Export.txt file.
         
     Returns
-    ----------
+    -------
     channel_names : list
         List of channel names.
     reference_channel : str
@@ -1347,7 +1347,7 @@ def _find_file(directory, start_str=None, end_str=None):
         String that the file should end with.
         
     Returns
-    ----------
+    -------
     str
         Path to the found file, or None if no file is found.
     """
@@ -1378,7 +1378,7 @@ def _find_all_files(directory, start_str=None, end_str=None):
         String that the file should end with.
         
     Returns
-    ----------
+    -------
     list of str
         List of paths to the found files, or an empty list if no file is found.
     """
