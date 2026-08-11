@@ -218,11 +218,12 @@ def get_power_features(signal=None, sampling_rate=1000.0, size=0.25, overlap=0.5
 
     Computes the average signal power, with overlapping windows, in typical
     EEG frequency bands:
-    * Theta: from 4 to 8 Hz,
-    * Lower Alpha: from 8 to 10 Hz,
-    * Higher Alpha: from 10 to 13 Hz,
-    * Beta: from 13 to 25 Hz,
-    * Gamma: from 25 to 40 Hz.
+
+    - Theta: from 4 to 8 Hz,
+    - Lower Alpha: from 8 to 10 Hz,
+    - Higher Alpha: from 10 to 13 Hz,
+    - Beta: from 13 to 25 Hz,
+    - Gamma: from 25 to 40 Hz.
 
     Parameters
     ----------

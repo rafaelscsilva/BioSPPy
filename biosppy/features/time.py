@@ -22,29 +22,29 @@ from .. import stats
 def time(signal=None, sampling_rate=1000., include_diff=True):
     """Compute various time metrics describing the signal.
 
-        Parameters
-        ----------
-        signal : array
-            Input signal.
-        sampling_rate : int, float, optional
-            Sampling Rate (Hz).
-        include_diff : bool, optional
-            Whether to include the features of the signal's differences (first, second and absolute).
+    Parameters
+    ----------
+    signal : array
+        Input signal.
+    sampling_rate : int, float, optional
+        Sampling Rate (Hz).
+    include_diff : bool, optional
+        Whether to include the features of the signal's differences (first, second and absolute).
 
-        Returns
-        -------
-        feats : ReturnTuple object
-            Time features of the signal.
+    Returns
+    -------
+    feats : ReturnTuple object
+        Time features of the signal.
 
-        Notes
-        -----
-        Besides the features directly extracted in this function, it also calls:
-        - biosppy.signals.tools.signal_stats
-        - biosppy.stats.quartiles
-        - biosppy.stats.histogram
-        - biosppy.features.time.hjorth_features
+    Notes
+    -----
+    Besides the features directly extracted in this function, it also calls:
+    - biosppy.signals.tools.signal_stats
+    - biosppy.stats.quartiles
+    - biosppy.stats.histogram
+    - biosppy.features.time.hjorth_features
 
-        """
+    """
 
     # check inputs
     if signal is None:

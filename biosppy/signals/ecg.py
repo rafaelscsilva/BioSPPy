@@ -1482,7 +1482,7 @@ def Pan_Tompkins_Plus_Plus_segmenter(signal=None, sampling_rate=1000.0):
         Sampling frequency (Hz).
 
     Returns
-    ----------
+    -------
     qrs_i_raw: array
         R-peak location indices.
 
@@ -1964,17 +1964,17 @@ def find_artifacts(peaks, sampling_rate):
 
     Parameters
     ----------
-        peaks: array
-            Vector containing indices of detected peaks (R waves locations)
-        sampling_rate : float
-            ECG sampling frequency, in Hz.
+    peaks: array
+        Vector containing indices of detected peaks (R waves locations)
+    sampling_rate : float
+        ECG sampling frequency, in Hz.
 
     Returns
     -------
-        artifacts: dictionary
-            Struct containing indices of detected artifacts.
-        subspaces: dictionary
-            Subspaces containing rr, drrs, mrrs, s12, s22, c1, c2 used to classify artifacts.
+    artifacts: dictionary
+        Struct containing indices of detected artifacts.
+    subspaces: dictionary
+        Subspaces containing rr, drrs, mrrs, s12, s22, c1, c2 used to classify artifacts.
     """
     c1 = 0.13
     c2 = 0.17
@@ -2097,17 +2097,17 @@ def estimate_th(x, alpha, ww):
 
     Parameters
     ----------
-        x: array
-            Vector containing drrs or mrrs.
-        alpha : float
-            Empirically obtaind constant used in threshold calculation.
-        ww: int
-            Window width in ms.
+    x: array
+        Vector containing drrs or mrrs.
+    alpha : float
+        Empirically obtaind constant used in threshold calculation.
+    ww: int
+        Window width in ms.
 
     Returns
     -------
-        th: float
-            Threshold.
+    th: float
+        Threshold.
     """
 
     x_abs = np.abs(x)
@@ -2125,15 +2125,15 @@ def correct_extra(extra_indices, peaks):
 
     Parameters
     ----------
-        extra_indices: array
-            Vector containing indices of extra beats.
-        peaks : array
-            Vector containing indices of detected peaks (R waves locations).
+    extra_indices: array
+        Vector containing indices of extra beats.
+    peaks : array
+        Vector containing indices of detected peaks (R waves locations).
 
     Returns
     -------
-        corrected_peaks: array
-            Vector containing indices of corrected peaks.
+    corrected_peaks: array
+        Vector containing indices of corrected peaks.
     """
     corrected_peaks = peaks.copy()
     corrected_peaks = np.delete(corrected_peaks, extra_indices)
@@ -2145,15 +2145,15 @@ def correct_misaligned(misaligned_indices, peaks):
 
     Parameters
     ----------
-        misaligned_indices: array
-            Vector containing indices of misaligned beats.
-        peaks : array
-            Vector containing indices of detected peaks (R waves locations).
+    misaligned_indices: array
+        Vector containing indices of misaligned beats.
+    peaks : array
+        Vector containing indices of detected peaks (R waves locations).
 
     Returns
     -------
-        corrected_peaks: array
-            Vector containing indices of corrected peaks.
+    corrected_peaks: array
+        Vector containing indices of corrected peaks.
     """
     corrected_peaks = np.array(peaks.copy())
 
@@ -2181,15 +2181,15 @@ def correct_missed(missed_indices, peaks):
 
     Parameters
     ----------
-        missed_indices: array
-            Vector containing indices of missed beats.
-        peaks : array
-            Vector containing indices of detected peaks (R waves locations).
+    missed_indices: array
+        Vector containing indices of missed beats.
+    peaks : array
+        Vector containing indices of detected peaks (R waves locations).
 
     Returns
     -------
-        corrected_peaks: array
-            Vector containing indices of corrected peaks.
+    corrected_peaks: array
+        Vector containing indices of corrected peaks.
     """
     corrected_peaks = peaks.copy()
     missed_indices = np.array(missed_indices)
@@ -2214,17 +2214,17 @@ def update_indices(source_indices, update_indices, update):
 
     Parameters
     ----------
-        source_indices: array
-            Vector containing original indices.
-        update_indices : array
-            Vector containing update_indices.
-        update: int
-            Update index
+    source_indices: array
+        Vector containing original indices.
+    update_indices : array
+        Vector containing update_indices.
+    update: int
+        Update index
 
     Returns
     -------
-        list(np.unique(update_indices)): array
-            Vector containing unique updated indices.
+    list(np.unique(update_indices)): array
+        Vector containing unique updated indices.
     """
     if not update_indices:
         return update_indices
@@ -2245,8 +2245,8 @@ def correct_artifacts(artifacts, peaks):
 
     Returns
     -------
-        peaks: array
-            Vector containing indices of corrected R peaks.
+    peaks: array
+        Vector containing indices of corrected R peaks.
     """
     extra_indices = artifacts["extra"]
     missed_indices = artifacts["missed"]
@@ -2278,14 +2278,14 @@ def plot_artifacts(artifacts, subspaces):
 
     Parameters
     ----------
-        artifacts: dictionary
-            Struct containing indices of detected artifacts.
-        subspaces: dictionary
-            Subspaces containing rr, drrs, mrrs, s12, s22, c1, c2 used to classify artifacts.
+    artifacts: dictionary
+        Struct containing indices of detected artifacts.
+    subspaces: dictionary
+        Subspaces containing rr, drrs, mrrs, s12, s22, c1, c2 used to classify artifacts.
 
     Returns
     -------
-        None
+    None
     """
     ectopic_indices = artifacts["ectopic"]
     missed_indices = artifacts["missed"]
@@ -2373,21 +2373,21 @@ def fixpeaks(peaks, sampling_rate=1000, iterative=True, show=False):
 
     Parameters
     ----------
-        peaks: array
-            Vector containing indices of detected peaks (R waves locations)
-        sampling_rate : int, float, optional
-            ECG sampling frequency, in Hz.
-        iterative: boolean, optional
-            Repeatedly apply the artifact correction (default = true).
-        show: boolean, optional
-            Visualize artifacts and artifact thresholds (default = false).
+    peaks: array
+        Vector containing indices of detected peaks (R waves locations)
+    sampling_rate : int, float, optional
+        ECG sampling frequency, in Hz.
+    iterative: boolean, optional
+        Repeatedly apply the artifact correction (default = true).
+    show: boolean, optional
+        Visualize artifacts and artifact thresholds (default = false).
 
     Returns
     -------
-        artifacts: dictionary
-            Struct containing indices of detected artifacts.
-        peaks_clean: array
-            Vector of corrected peak values (indices)
+    artifacts: dictionary
+        Struct containing indices of detected artifacts.
+    peaks_clean: array
+        Vector of corrected peak values (indices)
 
     References
     ----------
@@ -2429,10 +2429,10 @@ def getQPositions(ecg_proc=None, show=False):
 
     Parameters
     ----------
-    signal : object
-    object return by the function ecg.
+    ecg_proc : object
+        object return by the function ecg.
     show : bool, optional
-    If True, show a plot of the Q Positions on every signal sample/template.
+        If True, show a plot of the Q Positions on every signal sample/template.
 
     Returns
     -------
@@ -2519,10 +2519,10 @@ def getSPositions(ecg_proc=None, show=False):
 
     Parameters
     ----------
-    signal : object
-    object return by the function ecg.
+    ecg_proc : object
+        object return by the function ecg.
     show : bool, optional
-    If True, show a plot of the S Positions on every signal sample/template.
+        If True, show a plot of the S Positions on every signal sample/template.
 
     Returns
     -------
@@ -2610,19 +2610,19 @@ def getPPositions(ecg_proc=None, show=False):
 
     Parameters
     ----------
-    signal : object
-    object return by the function ecg.
+    ecg_proc : object
+        object return by the function ecg.
     show : bool, optional
-    If True, show a plot of the P Positions on every signal sample/template.
+        If True, show a plot of the P Positions on every signal sample/template.
 
     Returns
     -------
     P_positions : array
-            Array with all P positions on the signal
+        Array with all P positions on the signal
     P_start_ positions : array
-            Array with all P start positions on the signal
+        Array with all P start positions on the signal
     P_end_ positions : array
-            Array with all P end positions on the signal
+        Array with all P end positions on the signal
     """
 
     templates_ts = ecg_proc["templates_ts"]
@@ -2734,10 +2734,10 @@ def getTPositions(ecg_proc=None, show=False):
 
     Parameters
     ----------
-    signal : object
-    object return by the function ecg.
+    ecg_proc : object
+        object return by the function ecg.
     show : bool, optional
-    If True, show a plot of the T Positions on every signal sample/template.
+        If True, show a plot of the T Positions on every signal sample/template.
 
     Returns
     -------
@@ -3029,8 +3029,6 @@ def fSQI(
 def ZZ2018(
     signal, detector_1, detector_2, fs=1000, search_window=100, nseg=1024, mode="simple"
 ):
-    import numpy as np
-
     """ Signal quality estimator. Designed for signal with a lenght of 10 seconds.
         Follows the approach by Zhao *et la.* [Zhao18]_.
 
@@ -3062,6 +3060,7 @@ def ZZ2018(
     SQI quality evaluation mechanism of single-lead ECG signal based on simple heuristic fusion and fuzzy comprehensive evaluation.
     Frontiers in Physiology, 9, 727.
     """
+    import numpy as np
 
     if len(detector_1) == 0 or len(detector_2) == 0:
         return "Unacceptable"

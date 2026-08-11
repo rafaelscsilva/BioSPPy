@@ -316,8 +316,7 @@ def cvx_decomposition(signal=None, sampling_rate=1000.0, tau0=2., tau1=0.7,
     Processing" IEEE Transactions on Biomedical Engineering, 2015.
 
     This function is used under the terms of the GNU General Public License
-    v3.0 (GPLv3). You should comply with the GPLv3 if you use this code (see
-    'License' section below).
+    v3.0 (GPLv3). You should comply with the GPLv3 if you use this code.
 
     Copyright (C) 2014-2015 Luca Citi, Alberto Greco
 
@@ -339,9 +338,9 @@ def cvx_decomposition(signal=None, sampling_rate=1000.0, tau0=2., tau1=0.7,
         Penalization for the tonic spline coefficients
     solver : ndarray
         Sparse QP solver to be used, see cvxopt.solvers.qp
-    options : dict 
+    options : dict
         solver options, see: http://cvxopt.org/userguide/coneprog.html#algorithm-parameters
-    
+
     Returns
     -------
     edr : array
@@ -356,31 +355,29 @@ def cvx_decomposition(signal=None, sampling_rate=1000.0, tau0=2., tau1=0.7,
         Offset and slope of the linear drift term
     res : array
         Model residuals
-    obj : array 
+    obj : array
         Value of objective function being minimized (eq 15 of paper)
-    
+
     References
     ----------
     .. [cvxEDA] A Greco, G Valenza, A Lanata, EP Scilingo, and L Citi
     "cvxEDA: a Convex Optimization Approach to Electrodermal Activity
     Processing" IEEE Transactions on Biomedical Engineering, 2015. DOI:
     10.1109/TBME.2015.2474131
-    
+
     .. [Figner2011] Figner, Bernd & Murphy, Ryan. (2011). Using skin
     conductance in judgment and decision making research. A Handbook of
     Process Tracing Methods for Decision Research.
 
-    License
-    -------
-    The cvxEDA function is distributed under the GNU General Public License
-    v3.0 (GPLv3). For details, please see the full license text at:
+    Notes
+    -----
+    **License notice:** The cvxEDA function is distributed under the GNU
+    General Public License v3.0 (GPLv3). For details, see
     https://www.gnu.org/licenses/gpl-3.0.en.html
 
     This code is provided as-is, without any warranty or support from the
     original authors.
 
-    Notes
-    -----
     Changes from original code:
     - 'y' -> 'signal'
     - 'delta' -> 1. / 'sampling_rate'

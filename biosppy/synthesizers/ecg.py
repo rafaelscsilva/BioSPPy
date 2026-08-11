@@ -30,12 +30,14 @@ def B(l, Kb):
     Follows the approach by Dolinský, Andráš, Michaeli and Grimaldi [Model03]_.
 
     If the parameter introduced doesn't make sense in this context, an error will raise.
+
     Parameters
     ----------
     l  : float
         Inverse of the sampling rate.
     Kb : int
         B segment width (miliseconds).
+
     Returns
     -------
     B_segment : array
@@ -61,6 +63,7 @@ def P(i, Ap, Kp):
     Follows the approach by Dolinský, Andráš, Michaeli and Grimaldi [Model03]_.
 
     If the parameters introduced don't make sense in this context, an error will raise.
+
     Parameters
     ----------
     i  : int
@@ -69,6 +72,7 @@ def P(i, Ap, Kp):
         P wave amplitude (milivolts).
     Kp : int
         P wave width (miliseconds).
+
     Returns
     -------
     P_wave : array
@@ -97,12 +101,14 @@ def Pq(l, Kpq):
     Follows the approach by Dolinský, Andráš, Michaeli and Grimaldi [Model03]_.
 
     If the parameters introduced don't make sense in this context, an error will raise.
+
     Parameters
     ----------
     l  : float
         Inverse of the sampling rate.
     Kpq : int
         PQ segment width (miliseconds).
+
     Returns
     -------
     PQ_segment : array
@@ -128,6 +134,7 @@ def Q1(i, Aq, Kq1):
     Follows the approach by Dolinský, Andráš, Michaeli and Grimaldi [Model03]_.
 
     If the parameters introduced don't make sense in this context, an error will raise.
+
     Parameters
     ----------
     i   : int
@@ -136,6 +143,7 @@ def Q1(i, Aq, Kq1):
         Q wave amplitude (milivolts).
     Kq1 : int
         First 5/6 of the Q wave width (miliseconds).
+
     Returns
     -------
     Q1_wave : array
@@ -164,6 +172,7 @@ def Q2(i, Aq, Kq2):
     Follows the approach by Dolinský, Andráš, Michaeli and Grimaldi [Model03]_.
 
     If the parameters introduced don't make sense in this context, an error will raise.
+
     Parameters
     ----------
     i   : int
@@ -200,6 +209,7 @@ def R(i, Ar, Kr):
     Follows the approach by Dolinský, Andráš, Michaeli and Grimaldi [Model03]_.
 
     If the parameters introduced don't make sense in this context, an error will raise.
+
     Parameters
     ----------
     i  : int
@@ -208,6 +218,7 @@ def R(i, Ar, Kr):
         R wave amplitude (milivolts).
     Kr : int
         R wave width (miliseconds).
+
     Returns
     -------
     R_wave : array
@@ -236,6 +247,7 @@ def S(i, As, Ks, Kcs, k=0):
     Follows the approach by Dolinský, Andráš, Michaeli and Grimaldi [Model03]_.
 
     If the parameters introduced don't make sense in this context, an error will raise.
+
     Parameters
     ----------
     i  : int
@@ -247,6 +259,7 @@ def S(i, As, Ks, Kcs, k=0):
     Kcs : int
         Parameter which allows slight adjustment of S wave shape by cutting away a portion at the end.
     k : int, optional
+
     Returns
     -------
     S : array
@@ -296,6 +309,7 @@ def St(i, As, Ks, Kcs, sm, Kst, k=0):
     Follows the approach by Dolinský, Andráš, Michaeli and Grimaldi [Model03]_.
 
     If the parameters introduced don't make sense in this context, an error will raise.
+
     Parameters
     ----------
     i  : int
@@ -311,6 +325,7 @@ def St(i, As, Ks, Kcs, sm, Kst, k=0):
     Kst : int
         ST segment width (miliseconds).
     k : int, optional
+
     Returns
     -------
     ST : array
@@ -344,6 +359,7 @@ def T(i, As, Ks, Kcs, sm, Kst, At, Kt, k=0):
     Follows the approach by Dolinský, Andráš, Michaeli and Grimaldi [Model03]_.
 
     If the parameters introduced don't make sense in this context, an error will raise.
+
     Parameters
     ----------
     i  : int
@@ -363,6 +379,7 @@ def T(i, As, Ks, Kcs, sm, Kst, At, Kt, k=0):
     Kt : int
         T wave width (miliseconds).
     k : int, optional
+
     Returns
     -------
     T : array
@@ -404,6 +421,7 @@ def I(i, As, Ks, Kcs, sm, Kst, At, Kt, si, Ki):
     Follows the approach by Dolinský, Andráš, Michaeli and Grimaldi [Model03]_.
 
     If the parameters introduced don't make sense in this context, an error will raise.
+
     Parameters
     ----------
     i  : int
@@ -426,6 +444,7 @@ def I(i, As, Ks, Kcs, sm, Kst, At, Kt, si, Ki):
         Parameter for setting the transition slope between T wave and isoelectric line.
     Ki : int
         I segment width (miliseconds).
+
     Returns
     -------
     I_segment : array
@@ -527,29 +546,35 @@ def ecg(
         Input parameters of the function
 
 
-    Example
-    -------
-    sampling_rate = 10000
-    beats = 3
-    noise_amplitude = 0.05
+    Examples
+    --------
+    .. code-block:: python
 
-    ECGtotal = np.array([])
-    for i in range(beats):
-        ECGwave, _, _ = ecg(sampling_rate=sampling_rate, var=0.1)
-        ECGtotal = np.concatenate((ECGtotal, ECGwave))
-    t = np.arange(0, len(ECGtotal)) / sampling_rate
+       import numpy as np
+       import matplotlib.pyplot as plt
+       from biosppy.synthesizers import ecg as ecg_syn
 
-    # add powerline noise (50 Hz)
-    noise = noise_amplitude * np.sin(50 * (2 * pi) * t)
-    ECGtotal += noise
+       sampling_rate = 10000
+       beats = 3
+       noise_amplitude = 0.05
 
-    plt.plot(t, ECGtotal)
-    plt.xlabel("Time (ms)")
-    plt.ylabel("Amplitude (mV)")
-    plt.grid()
-    plt.title("ECG")
+       ecg_total = np.array([])
+       for _ in range(beats):
+           ecg_wave, _, _ = ecg_syn.ecg(sampling_rate=sampling_rate, var=0.1)
+           ecg_total = np.concatenate((ecg_total, ecg_wave))
 
-    plt.show()
+       t = np.arange(0, len(ecg_total)) / sampling_rate
+
+       # Add powerline noise (50 Hz).
+       noise = noise_amplitude * np.sin(50 * (2 * np.pi) * t)
+       ecg_total += noise
+
+       plt.plot(t, ecg_total)
+       plt.xlabel("Time (s)")
+       plt.ylabel("Amplitude (mV)")
+       plt.title("Synthetic ECG")
+       plt.grid(True)
+       plt.show()
 
     References
     ----------

@@ -30,7 +30,7 @@ class Mock(MagicMock):
             return Mock()
 
 
-MOCK_MODULES = ['numpy', 'scipy', 'matplotlib', 'matplotlib.pyplot','matplotlib.lines',
+MOCK_MODULES = ['numpy', 'scipy', 'scipy.fft', 'matplotlib', 'matplotlib.pyplot', 'matplotlib.colors', 'matplotlib.lines',
                 'matplotlib.patches','matplotlib.backends.backend_tkagg',
                 'scipy.signal', 'scipy.interpolate', 'scipy.optimize',
                 'scipy.stats', 'scipy.cluster', 'scipy.cluster.hierarchy',
@@ -38,7 +38,8 @@ MOCK_MODULES = ['numpy', 'scipy', 'matplotlib', 'matplotlib.pyplot','matplotlib.
                 'scipy.spatial.distance', 'sklearn', 'sklearn.cluster',
                 'sklearn.model_selection', 'sklearn.externals',
                 'matplotlib.gridspec', 'h5py', 'shortuuid', 'bidict', 'svm',
-                'sksvm','pywt','joblib','scipy.linalg','scipy.integrate','scipy.ndimage','peakutils']
+                'sksvm','pywt','joblib','scipy.linalg','scipy.integrate','scipy.ndimage','peakutils',
+                'pyvista', 'tensorflow', 'tensorflow.keras']
 
 sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 
@@ -57,11 +58,22 @@ sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
     'sphinx.ext.coverage',
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',
     'sphinx.ext.imgmath',
+    'sphinx_copybutton',
 ]
+
+autosummary_generate = True
+
+# Make autosummary-generated module pages render full API details for members.
+autodoc_default_options = {
+    'members': True,
+    'undoc-members': True,
+    'show-inheritance': True,
+}
 
 # Napoleon settings
 napoleon_use_rtype = False
@@ -138,8 +150,9 @@ exclude_patterns = ['_build']
 # output. They are ignored by default.
 #show_authors = False
 
-# The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+# Syntax highlighting styles (light and dark mode).
+pygments_style = 'friendly'
+pygments_dark_style = 'monokai'
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
@@ -153,15 +166,13 @@ todo_include_todos = False
 
 # -- Options for HTML output ----------------------------------------------
 
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
-html_theme = 'sphinx_rtd_theme'
+# The theme to use for HTML and HTML Help pages.
+html_theme = 'furo'
 
-# Theme options are theme-specific and customize the look and feel of a theme
-# further.  For a list of options available for each theme, see the
-# documentation.
+# Furo supports separate logos for light/dark mode.
 html_theme_options = {
-    'logo_only': True,
+    'light_logo': 'logo_light.png',
+    'dark_logo': 'logo_dark.png',
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -174,9 +185,8 @@ html_theme_options = {
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
 
-# The name of an image file (relative to this directory) to place at the top
-# of the sidebar.
-html_logo = "logo/logo_inverted_no_tag.png"
+# Keep theme-aware logos only (configured via html_theme_options above).
+html_logo = None
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -186,7 +196,8 @@ html_favicon = "favicon.ico"
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-# html_static_path = ['_static']
+html_static_path = ['_static']
+html_css_files = ['custom.css']
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
